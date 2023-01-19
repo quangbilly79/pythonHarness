@@ -64,7 +64,7 @@ def import_events(client, file, primary_event, with_dates):
 
         if (data[1] != "$set"):
             client.create(
-                event=data[1],
+                event="wishlist",
                 entity_type="user",
                 entity_id=data[0],
                 target_entity_type="item",
@@ -123,9 +123,9 @@ def import_events(client, file, primary_event, with_dates):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Import sample data for Universal Recommender Engine")
-    parser.add_argument('--engine_id', default='test_ur')
+    parser.add_argument('--engine_id', default='waka')
     parser.add_argument('--url', default="http://localhost:9090")
-    parser.add_argument('--input_file', default="examples/ur/sample-mobile-device-ur-data.csv")
+    parser.add_argument('--input_file', default="sample-mobile-device-ur-data.csv")
     parser.add_argument('--primary_event', default="purchase")
     parser.add_argument('--with_dates', default=False)
     parser.add_argument('--secret', default=None)
