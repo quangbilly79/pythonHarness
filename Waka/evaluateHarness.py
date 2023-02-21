@@ -18,7 +18,7 @@ spark = SparkSession.builder.getOrCreate()
 
 sqlUserRead = """
 select user_id, collect_set(cast(content_id as string)) as content_id from waka.waka_pd_fact_reader
-where  data_date_key > 20220631
+where  data_date_key > 20220631 and data_date_key <= 20220731
 group by user_id
 order by user_id
 """
@@ -109,9 +109,6 @@ with open('resultHarness.txt', 'w+') as f:
     f.write("Mean Average Precision: "+ str(MAP)+"%" + "\n" + "Mean Precision: "+ str(MP)+"%")
 
 
-#3.022491068528744% for
-# "eventNames": [
-#     "wishlist", "read", "rate"
-# ],
-# "blacklistEvents": ["wishlist", "read"]
-
+#train set 6 month
+# Mean Average Precision: 4.048065018784152%
+# Mean Precision: 5.4095158811475414%

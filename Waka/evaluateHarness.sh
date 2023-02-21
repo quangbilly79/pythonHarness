@@ -1,0 +1,9 @@
+#!/bin/bash
+spark-submit  \
+     --master yarn \
+     --deploy-mode client \
+     --driver-memory 6g \
+     --executor-memory 2g \
+     --driver-cores 6 \
+     evaluateHarness.py \
+     > outputHarness.txt 1>&1
